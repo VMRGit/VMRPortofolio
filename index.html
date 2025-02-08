@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="src/jquery-3.7.1.min.js"></script>
+<script>
+	var blinkEffect = null
+	$(document).ready(function(){
+		blinkEffect = setInterval(function() {
+			$('#text_start').fadeToggle(1);
+		},500);
+		
+		$(".div_category").hide();
+		$("#div_menu").hide();
+		
+		$("#text_start").click(function(){
+			clearInterval(blinkEffect);
+			$(this).hide();
+			$("#div_menu").show();
+		});
+		
+		$("#option_sma").click(function(){
+			$("#div_menu").hide();
+			$("#div_titles").hide();
+			$(".div_category").show();
+		});
+		
+		$(".text_back").click(function(){
+			$(".div_category").hide();
+			$("#div_menu").show();
+			$("#div_titles").show();
+		});
+	});
+</script>
+</head>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+body {
+	background: #000000;
+	font-size: 100%;
+}
+
+#div_head > img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#div_titles {
+	text-align: center;
+}
+
+.text_pixel {
+	font-family: "Tiny5";
+	color: #ffffff;
+}
+
+#text_start {
+	text-align: center;
+	font-size: 3vw;
+	padding-top: 5vw;
+}
+
+.text_category {
+	text-align: center;
+	font-size: 3vw;
+}
+
+.text_back {
+	float: left;
+	font-size: 1.5vw;
+	padding-left: 3vw;
+}
+
+.text_hyperlink {
+	text-align: right;
+	font-size: 2.5vw;
+}
+
+.text_option {
+	text-align: center;
+	font-size: 2vw;
+	color: #0094FF;
+}
+
+.image_sample {
+	margin-left: 3.0vw;
+}
+
+</style>
+
+<body>
+
+<div id="div_head">
+	<img src="src/logo.png" alt="logo" style="width:48vw;height:16vw;">
+</div>
+<h3 id="div_titles" class="text_pixel" style="font-size: 3vw;">GRAPHIC DESIGNER | PROGRAMMER</h3>
+<h2 id="text_start" class="text_pixel">-- PRESS HERE TO START --</h3>
+<div id="div_menu">
+	<h4 id="option_sma" class="text_option text_pixel">SOCIAL MEDIA ARTWORK</h4>
+	<h4 id="option_lp" class="text_option text_pixel"><a href="https://www.linkedin.com/in/vmrmx" target="_blank">LINKEDIN PROFILE</a></h4>
+</div>
+<div class="div_category">
+	<h4 class="text_pixel text_back">&lt; BACK</h4>
+	<h2 class="text_pixel text_category">SOCIAL MEDIA ARTWORK</h2>
+	<img class="image_sample"src="src/psic1.png" alt="psic1" style="width:16vw;height:16vw;">
+	<img class="image_sample"src="src/psic2.png" alt="psic2" style="width:16vw;height:16vw;">
+	<img class="image_sample"src="src/psic3.png" alt="psic3" style="width:16vw;height:16vw;">
+	<img class="image_sample"src="src/psic4.png" alt="psic4" style="width:16vw;height:16vw;">
+	<img class="image_sample"src="src/psic5.png" alt="psic5" style="width:16vw;height:16vw;">
+	<h3 class="text_pixel text_hyperlink"><a href="https://www.instagram.com/psic.noramoreno/" target="_blank">@psic.noramoreno</a></h3>
+</div>
+
+</body>
+</html>
