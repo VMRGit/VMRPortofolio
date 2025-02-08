@@ -2,10 +2,10 @@
 <html>
 
 <head>
-<title>VMR Portofolio</title>
 <script src="src/jquery-3.7.1.min.js"></script>
 <script>
-	var blinkEffect = null
+	var blinkEffect = null;
+	var pictureToDisplay = null;
 	$(document).ready(function(){
 		blinkEffect = setInterval(function() {
 			$('#text_start').fadeToggle(1);
@@ -13,6 +13,7 @@
 		
 		$(".div_category").hide();
 		$("#div_menu").hide();
+		$("#div_display").hide();
 		
 		$("#text_start").click(function(){
 			clearInterval(blinkEffect);
@@ -30,6 +31,18 @@
 			$(".div_category").hide();
 			$("#div_menu").show();
 			$("#div_titles").show();
+		});
+		
+		$(".image_sample").click(function(){
+			pictureToDisplay = $(this).attr("src");
+			$(".div_category").hide();
+			$("#div_display").show();
+			$("#image_display").attr("src", pictureToDisplay);
+		});
+		
+		$("#image_display").click(function(){
+			$("#div_display").hide();
+			$(".div_category").show();
 		});
 	});
 </script>
@@ -91,6 +104,13 @@ body {
 	margin-left: 3.0vw;
 }
 
+#image_display {
+	padding-top: 2.0vw;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 </style>
 
 <body>
@@ -99,6 +119,9 @@ body {
 	<img src="src/logo.png" alt="logo" style="width:48vw;height:16vw;">
 </div>
 <h3 id="div_titles" class="text_pixel" style="font-size: 3vw;">GRAPHIC DESIGNER | PROGRAMMER</h3>
+<div id="div_display">
+	<img id="image_display"src="src/psic1.png" alt="display" style="width:30vw;height:30vw;">
+</div>
 <h2 id="text_start" class="text_pixel">-- PRESS HERE TO START --</h3>
 <div id="div_menu">
 	<h4 id="option_sma" class="text_option text_pixel">SOCIAL MEDIA ARTWORK</h4>
