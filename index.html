@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>VMR Portofolio</title>
 <script src="src/jquery-3.7.1.min.js"></script>
 <script>
-	var blinkEffect = null;
+	var pictureToDisplay = null;
+	$(document).ready(function(){
+		$("#div_display").hide();
+		
+		$(".image_sample").click(function(){
+			pictureToDisplay = $(this).attr("src");
+			$("#div_display").show();
+			$("#image_display").attr("src", pictureToDisplay);
+		});
+		
+		$("#image_display").click(function(){
+			$("#div_display").hide();
+		});
+	});
+	/*var blinkEffect = null;
 	var pictureToDisplay = null;
 	$(document).ready(function(){
 		blinkEffect = setInterval(function() {
-			$('#text_start').fadeToggle(1);
+			$('#text_title').fadeToggle(1);
 		},500);
 		
 		$(".div_category").hide();
 		$("#div_menu").hide();
 		$("#div_display").hide();
 		
-		$("#text_start").click(function(){
+		$("#text_title").click(function(){
 			clearInterval(blinkEffect);
 			$(this).hide();
 			$("#div_menu").show();
@@ -45,17 +59,22 @@
 			$("#div_display").hide();
 			$(".div_category").show();
 		});
-	});
+	});*/
 </script>
 </head>
-
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 
 body {
-	background: #000000;
+	background: #0E1111;
 	font-size: 100%;
+}
+
+#div_main{
+	position: absolute;
+	
+	justify-content: center;
+	align-items: center;
 }
 
 #div_head > img{
@@ -68,15 +87,34 @@ body {
 	text-align: center;
 }
 
+#div_display{
+	background: rgba(198, 198, 198, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
 .text_pixel {
 	font-family: "Tiny5";
 	color: #ffffff;
 }
 
-#text_start {
+#text_title {
 	text-align: center;
 	font-size: 3vw;
-	padding-top: 5vw;
+	margin-top: 5vw;
+}
+
+#text_subtitle {
+	text-align: center;
+	font-size: 2vw;
+	margin-top: 2.5vw;
 }
 
 .text_category {
@@ -102,28 +140,52 @@ body {
 }
 
 .image_sample {
-	margin-left: 3.0vw;
+	margin: 8vw;
+	width: 	16vw;
+	height: 16vw;
 }
 
 #image_display {
-	padding-top: 2.0vw;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	z-index: 3;
+	max-width: 80vw;
+	max-height: 80vh;
 }
-
 </style>
 
 <body>
 
-<div id="div_head">
-	<img src="src/logo.png" alt="logo" style="width:48vw;height:16vw;">
-</div>
-<h3 id="div_titles" class="text_pixel" style="font-size: 3vw;">ILLUSTRATOR | PROGRAMMER</h3>
 <div id="div_display">
-	<img id="image_display"src="src/psic1.png" alt="display" style="width:30vw;height:30vw;">
+	<img id="image_display"src="src/psic1.png" alt="display">
 </div>
-<h2 id="text_start" class="text_pixel">-- PRESS HERE TO START --</h3>
+
+<h1 id="text_title" class="text_pixel">VALENTIN MORENO RODRIGUEZ</h1>
+<h2 id="text_subtitle" class="text_pixel">-SOCIAL MEDIA ILLUSTRATIONS-</h2>
+
+<div id="div_main">
+	<img class="image_sample"src="src/pic018.png" alt="pic018">
+	<img class="image_sample"src="src/pic017.png" alt="pic017">
+	<img class="image_sample"src="src/pic016.png" alt="pic016">
+	<img class="image_sample"src="src/pic015.png" alt="pic015">
+	<img class="image_sample"src="src/pic014.png" alt="pic014">
+	<img class="image_sample"src="src/pic013.png" alt="pic013">
+	<img class="image_sample"src="src/pic012.png" alt="pic012">
+	<img class="image_sample"src="src/pic011.png" alt="pic011">
+	<img class="image_sample"src="src/pic010.png" alt="pic010">
+	<img class="image_sample"src="src/pic009.png" alt="pic009">
+	<img class="image_sample"src="src/pic008.png" alt="pic008">
+	<img class="image_sample"src="src/pic007.png" alt="pic007">
+	<img class="image_sample"src="src/pic006.png" alt="pic006">
+	<img class="image_sample"src="src/pic005.png" alt="pic005">
+	<img class="image_sample"src="src/pic004.png" alt="pic004">
+	<img class="image_sample"src="src/pic003.png" alt="pic003">
+	<img class="image_sample"src="src/pic002.png" alt="pic002">
+	<img class="image_sample"src="src/pic001.png" alt="pic001">
+</div>
+
+<!--
+<h3 id="div_titles" class="text_pixel" style="font-size: 3vw;">ARTIST | DEVELOPER</h3>
+
+<h2 id="text_title" class="text_pixel">-- PRESS HERE TO START --</h3>
 <div id="div_menu">
 	<h4 id="option_sma" class="text_option text_pixel">SOCIAL MEDIA ARTWORK</h4>
 	<h4 id="option_lp" class="text_option text_pixel"><a href="https://www.linkedin.com/in/vmrmx" target="_blank">LINKEDIN PROFILE</a></h4>
@@ -138,6 +200,6 @@ body {
 	<img class="image_sample"src="src/psic5.png" alt="psic5" style="width:16vw;height:16vw;">
 	<h3 class="text_pixel text_hyperlink"><a href="https://www.instagram.com/psic.noramoreno/" target="_blank">@psic.noramoreno</a></h3>
 </div>
-
+-->
 </body>
 </html>
