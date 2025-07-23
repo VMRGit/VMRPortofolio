@@ -7,15 +7,37 @@
 <script>
 	var pictureToDisplay = null;
 	$(document).ready(function(){
+		$("#video_display").hide();
+		$("#image_display").hide();
 		$("#div_display").hide();
 		
 		$(".image_sample").click(function(){
 			pictureToDisplay = $(this).attr("src");
+			
+			if ($(this).hasClass("video_preview")){
+				pictureToDisplay = pictureToDisplay.replace("pic", "vid");
+				pictureToDisplay = pictureToDisplay.replace("png", "mp4");
+				
+				$("#video_display").show();
+				$("#video_display").find("source").attr("src", pictureToDisplay);
+				$("#video_display")[0].load();
+			}
+			else{
+				$("#image_display").show();
+				$("#image_display").attr("src", pictureToDisplay);
+			}
+			
 			$("#div_display").show();
-			$("#image_display").attr("src", pictureToDisplay);
 		});
 		
 		$("#image_display").click(function(){
+			$("#image_display").hide();
+			$("#div_display").hide();
+		});
+		
+		$("#video_display").click(function(){
+			$("#video_display").hide();
+			$("#video_display")[0].pause();
 			$("#div_display").hide();
 		});
 	});
@@ -140,13 +162,18 @@ body {
 }
 
 .image_sample {
-	margin: 8vw;
-	width: 	16vw;
-	height: 16vw;
+	margin: 3.5vw;
+	width: 	25%;
+	height: auto;
 }
 
 #image_display {
 	z-index: 3;
+	max-width: 80vw;
+	max-height: 80vh;
+}
+
+#video_display {
 	max-width: 80vw;
 	max-height: 80vh;
 }
@@ -155,13 +182,26 @@ body {
 <body>
 
 <div id="div_display">
-	<img id="image_display"src="src/psic1.png" alt="display">
+	<img id="image_display" src="src/psic1.png" alt="display">
+	<video id="video_display" width="1080" height="1080" autoplay loop>
+		<source src="src/vid001.mp4" type="video/mp4">
+	</video>
 </div>
 
 <h1 id="text_title" class="text_pixel">VALENTIN MORENO RODRIGUEZ</h1>
 <h2 id="text_subtitle" class="text_pixel">-SOCIAL MEDIA ILLUSTRATIONS-</h2>
 
 <div id="div_main">
+	<img class="image_sample video_preview"src="src/pic028.png" alt="pic028">
+	<img class="image_sample video_preview"src="src/pic027.png" alt="pic027">
+	<img class="image_sample video_preview"src="src/pic026.png" alt="pic026">
+	<img class="image_sample video_preview"src="src/pic025.png" alt="pic025">
+	<img class="image_sample video_preview"src="src/pic024.png" alt="pic024">
+	<img class="image_sample video_preview"src="src/pic023.png" alt="pic023">
+	<img class="image_sample video_preview"src="src/pic022.png" alt="pic022">
+	<img class="image_sample video_preview"src="src/pic021.png" alt="pic021">
+	<img class="image_sample video_preview"src="src/pic020.png" alt="pic020">
+	<img class="image_sample video_preview"src="src/pic019.png" alt="pic019">
 	<img class="image_sample"src="src/pic018.png" alt="pic018">
 	<img class="image_sample"src="src/pic017.png" alt="pic017">
 	<img class="image_sample"src="src/pic016.png" alt="pic016">
